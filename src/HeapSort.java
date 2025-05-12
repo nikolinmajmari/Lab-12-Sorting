@@ -3,37 +3,11 @@ import java.util.Arrays;
 public class HeapSort {
 
     public static void sort(int[] arr){
-        printHeapTree(arr,arr.length);
-        for(int i=arr.length/2-1;i>= 0;i--){
-            heapify(arr,arr.length,i);
-            System.out.printf("heapify(arr,arr.length,%d)",i);
-            printHeapTree(arr,arr.length);
-        }
-        for(int i=arr.length-1;i>0;i--){
-            int temp = arr[0];
-            arr[0] = arr[i];
-            arr[i] = temp;
-            heapify(arr,i,0);
-            printHeapTree(arr,i);
-        }
+        /// todo your code here
     }
 
     private static void heapify(int[] arr, int len,int i) {
-        int largest = i;
-        int l = 2*i+1;
-        int r = 2*i+2;
-        if(l<len && arr[l]>arr[largest]){
-            largest = l;
-        }
-        if(r<len && arr[r]>arr[largest]){
-            largest = r;
-        }
-        if(largest != i){
-            int temp = arr[i];
-            arr[i] = arr[largest];
-            arr[largest] = temp;
-            heapify(arr,len,largest);
-        }
+      // todo your code here
     }
 
     public static void printHeapTree(int[] arr, int size) {
