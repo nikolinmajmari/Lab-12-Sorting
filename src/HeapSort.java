@@ -3,11 +3,35 @@ import java.util.Arrays;
 public class HeapSort {
 
     public static void sort(int[] arr){
-        /// todo your code here
+        for(int i=arr.length/2-1; i>=0; i--){
+            heapify(arr,arr.length,i);
+        }
+        for(int i=arr.length-1; i>0; i--){
+            int temp = arr[i];
+            arr[i] = arr[0];
+            arr[0] = temp;
+            heapify(arr,i,0);
+            System.out.println(Arrays.toString(arr));
+        }
     }
 
     private static void heapify(int[] arr, int len,int i) {
-      // todo your code here
+       int leftIndex = 2*i+1;
+       int rightIndex = 2*i+2;
+       int largest = i;
+       if (leftIndex < len && arr[i] < arr[leftIndex]) {
+           largest =  leftIndex;
+       }
+       if (rightIndex < len && arr[largest] < arr[rightIndex]) {
+           largest =  rightIndex;
+       }
+       if (largest != i) {
+           int temp = arr[i];
+           arr[i] = arr[largest];
+           arr[largest] = temp;
+          // printHeapTree(arr,arr.length);
+           heapify(arr,len,largest);
+       }
     }
 
     public static void printHeapTree(int[] arr, int size) {
@@ -41,7 +65,9 @@ public class HeapSort {
         int[] arr = new int[]{
             5,6,11,10,9,12,8,7,2,1,6
         };
+        printHeapTree(arr,arr.length);
         sort(arr);
         printHeapTree(arr,arr.length);
+        System.out.println(Arrays.toString(arr));
     }
 }
